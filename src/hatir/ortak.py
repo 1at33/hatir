@@ -1,6 +1,7 @@
 """Kasa yardımcıları; anlam ve puanla paketleri tarafından ortak kullanılır."""
 import json
 import os
+import re
 import subprocess
 import sys
 import unicodedata
@@ -83,4 +84,9 @@ def puan_dosyalari(folder):
                 paths.append(path)
         except (OSError, ValueError):
             continue
-    return sorted(paths, key=lambda p: (p.stat().st_mtime_ns, p.name))
+    # Aynı mtime'da (Windows'ta sık) ad sırası: `X.json` < `X-2.json` < `X-10.json`.
+    return sorted(paths, key=lambda p: (p.stat().st_mtime_ns, _dogal(p.stem)))
+
+
+def _dogal(ad):
+    return [(0, int(parca), '') if parca.isdigit() else (1, 0, parca) for parca in re.split(r'(\d+)', ad)]

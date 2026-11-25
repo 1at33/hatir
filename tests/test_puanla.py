@@ -4,6 +4,7 @@ Ek: vault'un argüman/ortamdan gelmesi, varsayılan sonuç klasörü, anlam beti
 """
 import hashlib
 import json
+import os
 import sys
 import tempfile
 import unicodedata
@@ -1008,3 +1009,10 @@ def test_tire_ile_baslayan_soru_reddedilir(tmp_path):
                     encoding='utf-8')
     with pytest.raises(ValueError, match="'-' ile"):
         puanla.sorulari_oku(path)
+
+
+def test_puan_dosyalari_ayni_mtime_ekli_adi_sonra_siralar(tmp_path):
+    for ad in ('k-2.json', 'k.json', 'k-10.json'):
+        (tmp_path / ad).write_text(json.dumps({'sorular': [], 'ozet': {}}), encoding='utf-8')
+        os.utime(tmp_path / ad, ns=(10**18, 10**18))
+    assert [p.name for p in puan_dosyalari(tmp_path)] == ['k.json', 'k-2.json', 'k-10.json']
