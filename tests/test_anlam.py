@@ -182,7 +182,7 @@ def test_rrf_siralamasi():
 
 def test_karma_dense_listesi_k_ile_kesilir(tmp_path, monkeypatch):
     """Lexical liste ~5 kayıt, dense liste tüm notlar: kesilmezse lexical'daki her not iki puan toplar ve
-    dense'in tek başına bulduğu not ilk k'ye giremez (füzyon deneyi 2026-11-04: yetenek 0.36 -> 0.56)."""
+    dense'in tek başına bulduğu not ilk k'ye giremez."""
     vault_kur(tmp_path)
     anlam.dizinle(tmp_path, Sahte(), log=sessiz)
     monkeypatch.setattr(anlam, 'beyin_calistir',

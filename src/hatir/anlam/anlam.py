@@ -249,7 +249,7 @@ def notlari_topla(vault):
         metadata = note['metadata']
         if functions['status_word'](metadata) in functions['retired'] or replaced.get(note['not']):
             continue
-        # Private or remote-disallowed notes never leave the machine (beyin skill rule).
+        # Private or remote-disallowed notes never leave the machine.
         if not uzaga_gidebilir(metadata):
             continue
         title = metadata.get('title')
@@ -460,7 +460,7 @@ def ara(vault, soru, project=None, k=10, karma=False, embed_fn=None, python=None
         else:
             # İki liste de k'ye kesilir: beyin ~5 kayıt döndürür; dense tam liste verilirse lexical'daki her
             # not dense'te de bulunup iki puan toplar ve dense'in tek başına bulduğu not ilk k'ye giremez
-            # (füzyon deneyi 2026-11-04: v3 yetenek 0.36 -> 0.56, gerileme sabit).
+            # (ölçümde yetenek setinde belirgin artış, gerileme setinde değişiklik yok).
             ranked = rrf(lexical[:k], [s for s, _ in emb[:k]])
     out = {'records': [{'source': s, 'score': float(p)} for s, p in ranked[:k]],
            'yontem': 'karma' if karma else 'anlam'}

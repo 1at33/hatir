@@ -139,7 +139,7 @@ def on_bilgi(text, parser=None):
 
 
 def dogrulama_sinyali(value):
-    """facts.dogrulama değeri -> 0-1 (2026-10-31 v2.1): alan yok/boş 0.1, gözlendi 0.3 (bilinmeyenle aynı,
+    """facts.dogrulama değeri -> 0-1: alan yok/boş 0.1, gözlendi 0.3 (bilinmeyenle aynı,
     ama açıkça anılır), doğrulandı/kaynak/okuma 0.6, kullanıcı 0.9, test/ölçüm/deney 1.0."""
     value = str(value or '').casefold().strip()
     if not value:
