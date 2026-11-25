@@ -1,0 +1,3 @@
+{"id": "k1", "soru": "Yedekleme betiği hangi klasörü hedefliyor?", "proje": "ornek-proje", "beklenen": ["knowledge/ornek-proje/yedekleme-karari.md"], "tur": "kelime", "set": "gerileme"}
+{"id": "a1", "soru": "Verileri kaybetmeden önce hangi önlem alınmıştı?", "proje": "ornek-proje", "beklenen": ["knowledge/ornek-proje/yedekleme-karari.md", "notes/yedek-notu.md"], "tur": "anlam", "set": "yetenek"}
+{"id": "o1", "soru": "Eski kuyruk ayarı neydi?", "proje": null, "beklenen": [], "yasak": ["knowledge/arsiv/eski-kuyruk-ayari.md"], "tur": "kelime", "set": "gerileme"}

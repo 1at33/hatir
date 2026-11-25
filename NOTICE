@@ -1,0 +1,9 @@
+hatir
+Copyright (c) 2026 hatir katkıcıları — MIT (LICENSE)
+
+Bu proje aşağıdaki MIT lisanslı çalışmayla birlikte çalışır:
+
+- avenoxbeyin — Copyright (c) 2026 Avenox — MIT License
+  https://github.com/avenoxai/avenoxbeyin
+  Beyin hafıza çekirdeği. Bu repoya kopyalanmaz; karma arama ve ölçüm onun `context` çıktısını kullanır.
+

@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hatir"
+version = "0.1.0"
+description = "Markdown not kasası için anlam araması, yeniden sıralama ve geri getirme ölçümü (hit@k, MRR, olumsuz set, ölçek testi)"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE", "NOTICE"]
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff==0.17.3"]
+
+[project.scripts]
+hatir-anlam = "hatir.anlam.anlam:main"
+hatir-puanla = "hatir.puanla.puanla:main"
+hatir-karne = "hatir.puanla.karne:main"
+hatir-ayir = "hatir.puanla.ayir:main"
+hatir-olcek = "hatir.olcek.olc:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+hatir = ["veri/*.jsonl"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,30 @@
+# Örnek hatir ayarı. Kopyala: ~/.config/hatir/ayar.toml (Windows: %APPDATA%\hatir\ayar.toml)
+# ya da HATIR_AYAR ile yol göster. Gerçek anahtar yazma: anahtar_env yalnız değişkenin adıdır.
+# Gömme kapalı tutmak için: saglayici = "yok"
+
+[gomme]
+# Hazır istemciler: "gemini" (GEMINI_API_KEY) ve "nebius" (NEBIUS_API_KEY).
+# Başka bir ad OpenAI uyumlu POST {taban_url}/embeddings ucunu kullanır; model ve taban_url ister.
+saglayici = "yerel"
+model = "embed-ornek"
+taban_url = "http://127.0.0.1:11434/v1"
+# anahtar_env = "ORNEK_API_KEY"   # uç anahtar istemiyorsa yazma
+
+# Yeniden sıralama (hatir-anlam ara --rerank, hatir-puanla --yontem rerank). İsteğe bağlıdır; tablo yoksa
+# ya da saglayici = "yok" ise arama sözcük + anlam RRF (karma) sırasına düşer ve `degraded` işaretlenir.
+# Her zaman OpenAI uyumlu POST {taban_url}/chat/completions ucudur; kodda hazır sağlayıcı ya da model yoktur.
+# saglayici yalnız etikettir (sonuç dosyasına yazılır). taban_url https olmalı (http yalnız yerel sunucu).
+# Modele yalnız uzağa gidebilen notların başlık/proje/parçası gider; private ve remote_allowed: false notlar
+# ile sır kalıbı taşıyan parçalar gönderilmez.
+#
+# [yeniden_siralama]
+# saglayici = "yerel"
+# model = "siralayici-ornek"
+# taban_url = "http://127.0.0.1:11434/v1"
+#
+# Barındırılan bir uç örneği (adres ve model sağlayıcınızın belgesinden; anahtar ortam değişkeninde):
+# [yeniden_siralama]
+# saglayici = "barindirilan"
+# model = "ornek-sohbet-modeli"
+# taban_url = "https://api.ornek.example/v1"
+# anahtar_env = "ORNEK_SIRALAMA_KEY"
